@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Bank Plc</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="name-of-the-bank">
+            <h3>Golden City Bank Plc</h3>
+        </div>
+    </header>
+
+    <div class="hero-page">
+
+        <h1>Welcome to Golden City Bank Plc</h1>
+        <br> <br>
+        <button class="create-acc">Create an account</button>
+
+    </div>
+
+    <form action="" class="createAcc">
+        <h3>Create Account</h3>
+
+        <input type="text" placeholder="First Name" class="first_name"> <br>
+        <input type="text" placeholder="Last Name" class="last_name"> <br>
+        
+        <input type="text" placeholder="Phone number(- 801 234 5678)" class="phone_no"> <br>
+        <span class="number-error-msg"></span> <br>
+        <button class="createNewAccount" type="button" > Create Account</button>
+    </form>
+
+    <!-- <div>
+        <h4 class="user-info"></h4>
+        <p class="account-bal"></p>
+    </div> -->
+
+   <div class="users-page">
+        <div class="user-info">
+            <div>
+                <h4 class="acct-name">  </h4>
+                <span class="account-num"> </span>
+            </div>
+
+            <div>
+                <h3 class="account_bal"> ****</h3>
+                <button class="show-account-bal" onclick="hide_acc_bal()" >Show account bal.</button>
+            </div>
+        </div>
+        
+        
+        <div class="action-btns">
+            <button class="deposit"> Deposit </button>
+            <button class="withdraw"> Withdraw </button>
+            <button class="transfer"> Transfer </button>
+        </div>
+
+
+        <form action="" class="deposit-form">
+            <h3> Deposit</h3> 
+
+            <input type="text" placeholder="Amount" class="deposit-amount"><br>
+           <button class="click-to-deposit" type="button">Deposit</button>
+        </form>
+
+        <form action="" class="withdraw-form">
+            <h3> Withdraw</h3>
+
+            <input type="text" placeholder="Amount" class="withdraw-amount"><br>
+           <button class="click-to-withdraw" type="button">Withdraw</button>
+        </form>
+
+        <form action="" class="transfer-form">
+            <h3>Transfer</h3>
+            <input type="text" placeholder="Recipient's name" class="to-who">
+            <input type="text" placeholder="Recipient's Account Number" class="to-whos-number">
+            <input type="text" placeholder="Amount" class="transfer-amount" >
+            <input type="text" placeholder="Bank" class="to-whos-bank"><br>
+            <button class="click-to-transfer" type="button">Transfer</button>
+        </form>
+
+        <div class="transfer-receipt">
+
+            <button>Close</button>
+        </div>
+   
+    </div>  
+    
+    <script src=".\build\bankapp.js"></script>
+</body>
+</html>

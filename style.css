@@ -1,0 +1,164 @@
+header{
+    /* position: absolute; */
+    background-color: #ff0980;
+    padding: 1px 0px;
+    width: 35%;
+    margin-left: auto;
+    text-align: center;
+    color: #ffffff;
+}
+.hero-page{
+    margin: 2px 0;
+    padding: 10% 5%;
+    background-color: #f0f0f0;
+}
+.create-acc{
+    padding: 10px 30px;
+    border-radius: 5px;
+    border: none;
+    background-color: white;
+    box-shadow: 2px 2px .4px #ff0980;
+    font-weight: 500;
+}
+.createAcc{
+    visibility: hidden;
+    position: absolute;
+    top: 20%;
+    right: 30%;
+    background-color: white;
+    padding: 20px;
+    /* margin: 5% 20%; */
+}
+.createAcc input{
+    padding: 10px ;
+    margin: 20px;
+
+}
+/* .createAcc input .phone_no{
+    margin-bottom: -50px;
+} */
+.createAcc span{
+    display: none;
+    /* width: 10%; */
+    color: red;
+    font-size: 14px;
+    text-align: center;
+    padding: 0%;
+    margin-left: 0px;
+}
+.createAcc input:active{
+    color: #ff0980;
+}
+.createAcc h3{
+    margin: 20px;
+    color: #ff0980;
+}
+.createAcc button{
+    margin: 15px;
+    padding: 10px 0px;
+    width: 85%;
+    /* text-align: center; */
+    background-color: #ff0980;
+    border: none;
+    color: #ffffff;
+}
+/* .deposit, .withdraw, .transfer{
+    visibility: hidden;
+} */
+
+.createAcc a:hover{
+    color: #ff0980;
+    font-weight: bold;
+}
+.createAcc button:hover{
+    background-color: white;
+    color: #ff0980;
+    border: 2px solid #ff0980;
+}
+/* .createAcc a{
+    text-decoration: none;
+    color: white;
+} */
+.user-info{
+    background-color:#f0f0f0;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: space-between;
+    margin: 2px 0;
+}
+.show-account-bal {
+    width: 140px;
+    padding: 10px ;
+    margin: 15px 10px 0 0;
+    border: 1px solid black;
+    color: black;
+    font-weight:500;
+    box-shadow: 2px 2px 1px #ff0980;
+}
+.deposit, .withdraw , .transfer{
+    width: 120px;
+    padding: 10px ;
+    margin: 20px 11px ;
+    border: none;
+    color: black;
+    font-weight:500;
+    background-color: white;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    box-shadow: 1px 1px white;
+    transition: margin 0.5s;
+/* .show-account-bal:hover{
+    width: 145px;
+} */
+}
+.deposit:hover, .withdraw:hover, .transfer:hover{
+   margin: 25px 15px;
+}
+
+.action-btns{
+   text-align: center;
+   background-color: #ff0980;
+   margin-top: 2px;
+}
+.users-page{
+    display: none;
+}
+
+.deposit-form, .withdraw-form, .transfer-form{
+    display: none;
+    position: absolute;
+    top: 20%;
+    /* right: 30%; */
+    background-color: white;
+    padding: 50px;
+    border: 1px solid #f0f0f0;
+}
+
+.deposit-form input, .withdraw-form input, .transfer-form input{
+    margin-bottom: 25px ;
+    margin-right: 5px;
+    padding: 5px 3px;
+    
+}
+.deposit-form button, .withdraw-form button{
+    width: 100%;
+    padding: 10px;
+    border: none;
+}
+ /* .transfer-form input{
+    margin-bottom: 25px ;
+    padding: 5px ;
+ } */
+.transfer-form button{
+    width: 100%;
+    /* margin: 0 auto; */
+    padding: 10px;
+    border: none;
+}
+.transfer-receipt{
+    display: none;
+    background-color: white;
+    padding: 50px 100px;
+    position: absolute;
+    top: 20%;
+}
