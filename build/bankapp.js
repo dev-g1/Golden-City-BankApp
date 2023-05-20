@@ -19,6 +19,7 @@ const userInfo = document.querySelector(".user-info");
 const hero_page = document.querySelector(".hero-page");
 const acct_num = document.querySelector(".account-num");
 const users_page = document.querySelector(".users-page");
+const acc_created = document.querySelector(".acc-created");
 function createAccount(e) {
     e.preventDefault();
     // createAcc.style.visibility = "hidden";
@@ -35,6 +36,10 @@ function createAccount(e) {
             form.style.visibility = "collapse";
             hero_page.style.display = 'none';
             users_page.style.display = 'block';
+            acc_created.style.display = "block";
+            setTimeout(() => {
+                acc_created.style.display = "none";
+            }, 3000);
         }
         // alert("Please enter a value")
         // form.style.visibility = "visible"
@@ -48,13 +53,6 @@ function createAccount(e) {
     acct_num.innerHTML = phoneNumber.value;
     newUser1 = new BankAppSystem(" ", 0);
     console.log(newUser1.account_Name = userName);
-    // const link = document.querySelector('.createNewAccountlink') as HTMLAnchorElement;
-    // link.href = "userAccountPage.html"
-    // console.log(link.href)
-    // if (userName != null) {
-    //     ? ;
-    //     console.log(userName);
-    // }
 }
 // userInfo.style.backgroundColor = '#ff0980';
 // const checking_stn = document.querySelector('.checking-something') as HTMLDivElement;
@@ -83,21 +81,27 @@ function deposit_money() {
         alert('Please enter an amount');
     }
     else {
-        if (amount != null) {
-            newUser1 === null || newUser1 === void 0 ? void 0 : newUser1.deposit(parseInt(amount));
-        }
+        newUser1 === null || newUser1 === void 0 ? void 0 : newUser1.deposit(parseInt(amount));
+        userBal.innerHTML = "₦ " + newUser1.accBal.toString() + " . 00";
+        deposit_form.style.display = "none";
     }
     console.log(newUser1 === null || newUser1 === void 0 ? void 0 : newUser1.accBal);
     // userBal.innerHTML = newUser1.accBal.toString();
-    userBal.innerHTML = "₦ " + newUser1.accBal.toString() + " . 00";
-    deposit_form.style.display = "none";
 }
 function withdraw_money() {
     let amount = withdraw_amount.value;
     // let amount = (prompt("How much?"))
     let amount_num = parseInt(amount);
+    if (amount == '') {
+        alert('Please enter an amount');
+    }
+    else {
+        if (amount != null) {
+            newUser1 === null || newUser1 === void 0 ? void 0 : newUser1.withdraw(amount_num);
+        }
+    }
     console.log(newUser1 === null || newUser1 === void 0 ? void 0 : newUser1.accBal);
-    userBal.innerHTML = newUser1.accBal.toString();
+    // userBal.innerHTML = newUser1.accBal.toString();
     userBal.innerHTML = "₦ " + newUser1.accBal.toString() + " . 00";
     withdraw_form.style.display = "none";
 }
@@ -111,39 +115,32 @@ function transfer_money() {
     // let toWho = document.querySelector(".to-who") as HTMLInputElement;
     // let acc_num = (prompt("Account Number: "));
     // let toBank = (prompt("Name of Bank: "));
-    if (amount != null) {
-        newUser1 === null || newUser1 === void 0 ? void 0 : newUser1.transfer(parseInt(amount));
+    if (amount != '') {
+        if (to_whos_account.value != '') {
+            newUser1 === null || newUser1 === void 0 ? void 0 : newUser1.transfer(parseInt(amount));
+            transfer_form.style.display = "none";
+            const transfer_receipt = document.querySelector(".transfer-receipt");
+            transfer_receipt.innerHTML = `You have transferred ${amount} to ${toWho.value} ${to_whos_account.value} ${to_whos_bank.value}`;
+        }
+        else {
+            alert("Enter Receipients details");
+        }
+    }
+    else {
+        alert("Enter an amount!");
     }
     console.log(newUser1 === null || newUser1 === void 0 ? void 0 : newUser1.accBal);
     // userBal.innerHTML = newUser1.accBal.toString();
     userBal.innerHTML = "₦ " + newUser1.accBal.toString() + " . 00";
-    transfer_form.style.display = "none";
-    const transfer_receipt = document.querySelector(".transfer-receipt");
-    transfer_receipt.innerHTML = `You have transferred ${amount} to ${toWho.value} ${to_whos_account.value} ${to_whos_bank.value}`;
 }
 function makeDeposit() {
     deposit_form.style.display = "block";
 }
 function makeWithdraw() {
     withdraw_form.style.display = "block";
-    // let amount = (prompt("How much?"))
-    // if (amount != null) {
-    //     newUser1.withdraw(parseInt(amount))
-    // }
-    // console.log(newUser1.accBal);
-    // // userBal.innerHTML = newUser1.accBal.toString();
-    // userBal.innerHTML = "₦ " + newUser1.accBal.toString() + " . 00";
 }
 function makeTransfer() {
     transfer_form.style.display = "block";
-    // if (amount === null) {
-    //     alert("Please input")
-    //     // newUser1.transfer(parseInt(amount))
-    // }
-    // console.log(newUser1.accBal);
-    // alert(`You have transferred ${amount} to ${toWho} ${toBank} ${acc_num}`)
-    // // userBal.innerHTML = newUser1.accBal.toString();
-    // userBal.innerHTML = "₦ " + newUser1.accBal.toString() + " . 00";
 }
 const show_bal = document.querySelector(".show-account-bal");
 const acc_bal2 = document.querySelector(".account_bal2");
@@ -167,22 +164,38 @@ class BankAppSystem {
     }
     ;
     deposit(depos) {
-        this.accountBalance += depos;
-    }
-    withdraw(wdraw) {
-        if (this.accountBalance < wdraw) {
-            alert("Insufficient Funds");
+        if (depos < 0) {
+            alert("Invalid number!");
         }
         else {
-            this.accountBalance -= wdraw;
+            this.accountBalance += depos;
+        }
+        // this.accountBalance += depos;
+    }
+    withdraw(wdraw) {
+        if (wdraw > 0) {
+            if (this.accountBalance > wdraw) {
+                this.accountBalance -= wdraw;
+            }
+            else {
+                alert("Insufficient Funds");
+            }
+        }
+        else {
+            alert("Invalid number!");
         }
     }
     transfer(trans) {
-        if (this.accountBalance < trans) {
-            alert("Insufficient Funds");
+        if (trans > 0) {
+            if (this.accountBalance > trans) {
+                this.accountBalance -= trans;
+            }
+            else {
+                alert("Insufficient Funds");
+            }
         }
         else {
-            this.accountBalance -= trans;
+            alert("Invalid number!");
         }
         // this.accountBalance -= trans;
         // alert(`You have transferred ${trans}`)

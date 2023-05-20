@@ -1,3 +1,6 @@
+body{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 header{
     /* position: absolute; */
     background-color: #ff0980;
@@ -24,15 +27,30 @@ header{
     visibility: hidden;
     position: absolute;
     top: 20%;
-    right: 30%;
+    right: 20%;
     background-color: white;
     padding: 20px;
+    
     /* margin: 5% 20%; */
 }
 .createAcc input{
     padding: 10px ;
     margin: 20px;
 
+}
+.acc-created{
+    background-color: green;
+    width: 45%;
+    color: white;
+    /* font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+    font-weight: 600;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    top: 10%;
+    box-shadow: 1px 2px 2px black;
+    display: none;
+    transition: 20s ease-in-out ;
 }
 /* .createAcc input .phone_no{
     margin-bottom: -50px;
@@ -128,7 +146,7 @@ header{
     display: none;
     position: absolute;
     top: 20%;
-    /* right: 30%; */
+    right: 25%;
     background-color: white;
     padding: 50px;
     border: 1px solid #f0f0f0;
@@ -136,29 +154,29 @@ header{
 
 .deposit-form input, .withdraw-form input, .transfer-form input{
     margin-bottom: 25px ;
-    margin-right: 5px;
-    padding: 5px 3px;
+    margin-right: 10px;
+    padding: 5px;
     
 }
-.deposit-form button, .withdraw-form button{
-    width: 100%;
-    padding: 10px;
+.deposit-form button, .withdraw-form button, .transfer-form button{
+    width: 95%;
+    padding: 10px 0;
     border: none;
+}
+.transfer-form button{
+    width: 88%;
 }
  /* .transfer-form input{
     margin-bottom: 25px ;
     padding: 5px ;
  } */
-.transfer-form button{
-    width: 100%;
-    /* margin: 0 auto; */
-    padding: 10px;
-    border: none;
+.transfer-form {
+    right: 10%;
 }
 .transfer-receipt{
     display: none;
     background-color: white;
     padding: 50px 100px;
     position: absolute;
-    top: 20%;
+    top: 0%;
 }
